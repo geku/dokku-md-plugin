@@ -42,7 +42,7 @@ case "$1" in
             chown -R dokku: "$DOKKU_ROOT/.mariadb"
         fi
         echo $DB_PASSWORD > "$DOKKU_ROOT/.mariadb/pwd_$APP"
-        chown git: "$DOKKU_ROOT/.mariadb/pwd_$APP"
+        chown dokku: "$DOKKU_ROOT/.mariadb/pwd_$APP"
     fi
     # Stop existing container with the same persistent DB
     ID=$(docker ps | grep "$DB_IMAGE":latest |  awk '{print $1}')
